@@ -35,21 +35,19 @@ $(function() {
             expect(allFeeds.length).not.toBe(0);
         });
 
-        /* TODO: Write a test that loops through each feed
-         * in the allFeeds object and ensures it has a URL defined
+        /* Loops through each feed in the allFeeds object 
+         * and ensures it has a URL defined
          * and that the URL is not empty.
          */
         it('have URL and is not empty', function () {
-            allFeeds.foreach
-
             allFeeds.forEach(function(entry) {
                 expect(entry.url).toBeDefined();
                 expect(entry.url.length).not.toBe(0);
             });
         });
 
-        /* TODO: Write a test that loops through each feed
-         * in the allFeeds object and ensures it has a name defined
+        /* loops through each feed in the allFeeds object
+         * and ensures it has a name defined
          * and that the name is not empty.
          */
         it('have name and is not empty', function () {
@@ -90,20 +88,17 @@ $(function() {
         /* First we call a function to do an async request.
          * This way we ensure that data is loaded before we can test the results.
          */
-        beforeEach(function (done) {
-            loadFeed(0, function () {
-                done();
-            });
+        beforeEach(function(done) {
+            loadFeed(0, done);
         });
 
         /* When we have alreaded loaded the function, we test to ensure that
          * the loadFeed function has at least a single .entry elemente within
          * the .feed container, ones completed its work.
          */
-        it('has an .entry element after loading', function (done) {
+        it('has an .entry element after loading', function () {
             var entry = $('.feed .entry')[0];
             expect(entry).toBeGreaterThan('');
-            done();
         });
     });
     
